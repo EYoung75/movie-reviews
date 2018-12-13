@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import Navbar from "./components/navbar.jsx";
+import Movie from "./components/movie.jsx";
+import Movies from "./components/movies.jsx";
+import Home from "./components/home.jsx";
+import { Route } from "react-router-dom";
 
 class App extends Component {
   constructor(){
@@ -13,7 +17,8 @@ class App extends Component {
       year: 0,
       rating: 0,
       poster_url: "",
-      allInputs: false
+      allInputs: false,
+      selected: 0
     }
   }
 
@@ -26,7 +31,7 @@ class App extends Component {
     this.setState({
       [name]: value
     })
-    if(this.state.title.length > 0 && this.state.director.length > 0 && this.state.year > 0 && this.state.poster_url.length > 0){
+    if(this.state.title.length > 0 && this.state.director.length > 0 && this.state.year > 0){
       this.setState({allInputs: true})
     }
   }
@@ -88,10 +93,21 @@ class App extends Component {
       )
   }
 
+  selectMovie = (e) =>{
+    this.setState({selected: e.target.id})
+  }
+
+  updateMovie = (e) => {
+    this.setState({selected: e.target.id})
+  }
+
   render() {
     return (
         <div className="body">
-          <Navbar movies={this.state.movies} add={this.handleAdd} addForm={this.state.add} handleInput={this.handleInput} addMovie={this.addMovie} deleteMovie={this.deleteMovie}></Navbar>
+          <Navbar movies={this.state.movies} add={this.handleAdd} handleInput={this.handleInput} addMovie={this.addMovie} deleteMovie={this.deleteMovie}></Navbar>
+          <Route path="/movie" render={() => <Movie selected={this.state.selected} movies={this.state.movies} />}></Route>
+          <Route path="/movies" render={() => <Movies select={this.selectMovie} update={this.updateMovie} movies={this.state.movies} addForm={this.state.add} handleAdd={this.handleAdd} handleInput={this.handleInput} addMovie={this.addMovie} deleteMovie={this.deleteMovie} />}></Route>
+          <Route path="/" exact component={Home}></Route>
         </div>
     );
   }

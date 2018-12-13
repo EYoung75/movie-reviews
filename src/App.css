@@ -17,20 +17,17 @@
 
 .landing {
   color: #D14744;
-  position: relative;
-  top: 20vh;
-  left: 11vw;
+  display: flex;
+  justify-content: center;
   font-size: 3vh;
   font-family: 'Muli', sans-serif;
 }
 
 .moviesContainer {
   background-color: white;
-  height: 140vh;
+  height: auto;
   width: 100vw;
   position: relative;
-  top: 10vh;
-  right: 10vw;
   padding: 2vw;
   border: 2px solid black;
 }
@@ -69,8 +66,6 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  position: relative;
-  bottom: 8vh;
 }
 
 .director {
@@ -104,8 +99,8 @@ button:hover {
 
 .addButton {
   position: relative;
-  left: 70vw;
-  bottom: 12vh;
+  left: 85vw;
+  bottom: 10vh;
   height: 2rem;
   border-radius: 1rem;
 }
@@ -124,8 +119,8 @@ button:hover {
   font-size: 5vh;
   background-color: #ff4d4d;
   position: relative;
-  left: 65vw;
-  bottom: 25vh;
+  left: 85vw;
+  bottom: 7vh;
 }
 
 .newMovie{
@@ -148,4 +143,23 @@ input {
    margin-top: 1rem;
    border-radius: 1rem;
  }
+
+ .movieContainer{
+   height: 100%;
+   width: 100%;
+   background-color: gray;
+   position: relative;
+   bottom: 1rem;
+   display: flex;
+   justify-content: center;
+   align-content: center;
+ }
+
+ .moviePoster {
+   padding-top: 3rem;
+   height: 50vh;
+   width: auto;
+ }
+
+ 
 
