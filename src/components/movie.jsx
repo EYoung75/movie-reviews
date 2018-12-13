@@ -6,7 +6,7 @@ const Movie = (props) => {
     const selectedMovie = props.movies.map(movie => {
         if (movie.id == selected) {
             return (
-                <div className="single">
+                <div>
                     <img className="moviePoster" src={movie.poster_url}></img>
                     <h1>Title: {movie.title}</h1>
                     <h2>Director: {movie.director}</h2>

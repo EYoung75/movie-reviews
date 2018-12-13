@@ -5,6 +5,7 @@ import Movie from "./components/movie.jsx";
 import Movies from "./components/movies.jsx";
 import Home from "./components/home.jsx";
 import { Route } from "react-router-dom";
+import EditMovie from './components/editMovie';
 
 class App extends Component {
   constructor(){
@@ -34,6 +35,10 @@ class App extends Component {
     if(this.state.title.length > 0 && this.state.director.length > 0 && this.state.year > 0){
       this.setState({allInputs: true})
     }
+  }
+
+  updateMovie = (e) => {
+    console.log(this.state)
   }
 
   addMovie = (e) => {
@@ -97,16 +102,17 @@ class App extends Component {
     this.setState({selected: e.target.id})
   }
 
-  updateMovie = (e) => {
-    this.setState({selected: e.target.id})
+  resetSelected = () => {
+    this.setState({selected: 0})
   }
 
   render() {
     return (
         <div className="body">
-          <Navbar movies={this.state.movies} add={this.handleAdd} handleInput={this.handleInput} addMovie={this.addMovie} deleteMovie={this.deleteMovie}></Navbar>
+          <Navbar reset={this.resetSelected}></Navbar>
+          <Route path="/editMovie" render={() => <EditMovie update={this.updateMovie} selected={this.state.selected} movies={this.state.movies} handleInput={this.handleInput}></EditMovie>}></Route>
           <Route path="/movie" render={() => <Movie selected={this.state.selected} movies={this.state.movies} />}></Route>
-          <Route path="/movies" render={() => <Movies select={this.selectMovie} update={this.updateMovie} movies={this.state.movies} addForm={this.state.add} handleAdd={this.handleAdd} handleInput={this.handleInput} addMovie={this.addMovie} deleteMovie={this.deleteMovie} />}></Route>
+          <Route path="/movies" render={() => <Movies select={this.selectMovie} movies={this.state.movies} addForm={this.state.add} handleAdd={this.handleAdd} handleInput={this.handleInput} addMovie={this.addMovie} deleteMovie={this.deleteMovie} />}></Route>
           <Route path="/" exact component={Home}></Route>
         </div>
     );

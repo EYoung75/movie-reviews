@@ -25,7 +25,7 @@ class Movies extends React.Component {
                         </div>
                         <div className="buttons">
                             <button className="upDel" id={movie.id} onClick={this.props.deleteMovie}>Delete Movie</button>
-                            <button className="upDel" id={movie.id} onClick={this.props.updateMovie}>Edit</button>
+                            <Link to="/EditMovie"><button className="upDel" id={movie.id} onClick={this.props.select}>Edit</button></Link>
                         </div>
                     </div>
                 </div>)

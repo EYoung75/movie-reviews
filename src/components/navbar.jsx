@@ -9,7 +9,7 @@ class Navbar extends React.Component {
         return (
             <div className="nav">
                 <Link to="/"><p className="navLinks">Home</p></Link>
-                <Link to="/movies"><p className="navLinks">Reviewed Movies</p></Link>
+                <Link to="/movies"><p className="navLinks" onClick={this.props.reset}>Reviewed Movies</p></Link>
             </div>
 
         )
