@@ -5,12 +5,13 @@ import { Link } from 'react-router-dom'
 
 
 class Movies extends React.Component {
+
     render() {
         const props = this.props.movies
         const movies = props.map(movie => {
             return (
-                <div>
-                    <div id={movie.id} className="movieList">
+                <div id={movie.id}>
+                    <div className="movieList">
                         <div className="movieTitle">
                             <Link to="/movie"><h2 onClick={this.props.select} id={movie.id}>{movie.title}</h2></Link>
                         </div>
@@ -47,7 +48,7 @@ class Movies extends React.Component {
                     <div className="addMovie">
                         <h1 className="addTitle">Add A Movie</h1>
                         <button onClick={this.props.handleAdd} className="backButton">X</button>
-                        <form className="newMovie">
+                        <form className="newMovie" onSubmit={this.props.addMovie}>
                             <label>Title</label>
                             <input name="title" onChange={this.props.handleInput} type="text"></input>
                             <label>Director</label>
@@ -58,7 +59,7 @@ class Movies extends React.Component {
                             <input name="rating" onChange={this.props.handleInput} type="number" min="1" max="5" placeholder="1-5"></input>
                             <label>Poster URL</label>
                             <input name="poster_url" onChange={this.props.handleInput} type="text"></input>
-                            <button id="submit" type="button" onClick={this.props.addMovie}>Add Movie</button>
+                            <button id="submit" type="submit">Add Movie</button>
                         </form>
                     </div>
                 }

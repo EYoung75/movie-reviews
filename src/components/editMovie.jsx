@@ -10,16 +10,16 @@ const EditMovie = (props) => {
                     <img className="moviePoster" src={movie.poster_url}></img>
                     <form className="single">
                         <label>Title:</label>
-                        <input name="title" placeholder={movie.title}></input>
+                        <input onChange={props.handleInput} name="title" placeholder={movie.title}></input>
                         <label>Director:</label>
-                        <input name="director" placeholder={movie.director}></input>
+                        <input onChange={props.handleInput} name="director" placeholder={movie.director}></input>
                         <label>Year:</label>
-                        <input name="year" placeholder={movie.year}></input>
+                        <input onChange={props.handleInput} name="year" placeholder={movie.year}></input>
                         <label>Rating:</label>
-                        <input name="rating" placeholder={movie.rating}></input>
+                        <input onChange={props.handleInput} name="rating" placeholder={movie.rating}></input>
                         <label>Poster URL:</label>
-                        <input name="poster_url"></input>
-                        <button className="updateButton">Update</button>
+                        <input onChange={props.handleInput} name="poster_url"></input>
+                        <button className="updateButton" type="button" onClick={props.edit}>Update</button>
                     </form>
                 </div>
             )

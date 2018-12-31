@@ -37,14 +37,45 @@ class App extends Component {
     }
   }
 
-  updateMovie = (e) => {
-    console.log(this.state)
+  editMovie = (e) => {
+    if(this.state.allInputs === false) {
+      alert("Please fill out all fields")
+    } else {
+      const updatedMovie = {
+        title: this.state.title,
+        director: this.state.director,
+        year: this.state.year,
+        rating: this.state.rating,
+        poster_url: this.state.poster_url
+      }
+      fetch(`https://crud-movie-database.herokuapp.com/${e.target.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(updatedMovie)
+      })
+      .then(res => res.json())
+      .then(
+        this.setState({
+          title: "",
+          director: "",
+          year: 0,
+          rating: 0,
+          poster_url: "",
+          allInputs: false
+        })
+      )
+    }
   }
+
 
   addMovie = (e) => {
     if (this.state.allInputs === false) {
-       alert("Please fill out all fields")
+      e.preventDefault()
+      alert("Please fill out all fields")
     } else {
+        e.preventDefault()
         const newMovie = {
           title: this.state.title,
           director: this.state.director,
@@ -60,16 +91,8 @@ class App extends Component {
             body: JSON.stringify(newMovie)
           })
           .then(res => res.json())
-          .then(
-            this.setState({
-              title: "",
-              director: "",
-              year: 0,
-              rating: 0,
-              poster_url: "",
-              allInputs: false
-            })
-          )
+          .then(alert("Thank you, your movie review has been added"))
+          .then(()=> this.reload())
       }
    }
 
@@ -77,15 +100,14 @@ class App extends Component {
     fetch(`https://crud-movie-database.herokuapp.com/${e.target.id}`, {
             method: "DELETE",
           })
-          .then(()=>this.reload())
+          .then(res => res.status())
+          .then(()=> this.reload())
           
    }
 
 
   async componentDidMount() {
-    const response = await fetch("https://crud-movie-database.herokuapp.com/")
-    const json = await response.json()
-    this.setState({movies: json})
+    this.reload()
   }
 
   reload = () => {
@@ -93,7 +115,15 @@ class App extends Component {
       .then(res => res.json())
       .then(res => 
         this.setState({
-          movies: res
+          movies: res,
+          add: false,
+          title: "",
+          director: "",
+          year: 0,
+          rating: 0,
+          poster_url: "",
+          allInputs: false,
+          selected: 0
         })
       )
   }
@@ -110,7 +140,7 @@ class App extends Component {
     return (
         <div className="body">
           <Navbar reset={this.resetSelected}></Navbar>
-          <Route path="/editMovie" render={() => <EditMovie update={this.updateMovie} selected={this.state.selected} movies={this.state.movies} handleInput={this.handleInput}></EditMovie>}></Route>
+          <Route path="/editMovie" render={() => <EditMovie edit={this.editMovie} selected={this.state.selected} movies={this.state.movies} handleInput={this.handleInput}></EditMovie>}></Route>
           <Route path="/movie" render={() => <Movie selected={this.state.selected} movies={this.state.movies} />}></Route>
           <Route path="/movies" render={() => <Movies select={this.selectMovie} movies={this.state.movies} addForm={this.state.add} handleAdd={this.handleAdd} handleInput={this.handleInput} addMovie={this.addMovie} deleteMovie={this.deleteMovie} />}></Route>
           <Route path="/" exact component={Home}></Route>
