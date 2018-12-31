@@ -39,8 +39,10 @@ class App extends Component {
 
   editMovie = (e) => {
     if(this.state.allInputs === false) {
+      e.preventDefault()
       alert("Please fill out all fields")
     } else {
+      e.preventDefault()
       const updatedMovie = {
         title: this.state.title,
         director: this.state.director,
@@ -56,16 +58,8 @@ class App extends Component {
         body: JSON.stringify(updatedMovie)
       })
       .then(res => res.json())
-      .then(
-        this.setState({
-          title: "",
-          director: "",
-          year: 0,
-          rating: 0,
-          poster_url: "",
-          allInputs: false
-        })
-      )
+      .then(() => this.reload())
+      .then(() => window.location="http://localhost:3000/movies")
     }
   }
 

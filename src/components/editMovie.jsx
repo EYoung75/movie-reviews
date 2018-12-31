@@ -8,7 +8,7 @@ const EditMovie = (props) => {
             return (
                 <div>
                     <img className="moviePoster" src={movie.poster_url}></img>
-                    <form className="single">
+                    <form className="single" onSubmit={props.edit} id={movie.id}>
                         <label>Title:</label>
                         <input onChange={props.handleInput} name="title" placeholder={movie.title}></input>
                         <label>Director:</label>
@@ -19,7 +19,7 @@ const EditMovie = (props) => {
                         <input onChange={props.handleInput} name="rating" placeholder={movie.rating}></input>
                         <label>Poster URL:</label>
                         <input onChange={props.handleInput} name="poster_url"></input>
-                        <button className="updateButton" type="button" onClick={props.edit}>Update</button>
+                        <button className="updateButton" type="submit">Update</button>
                     </form>
                 </div>
             )
