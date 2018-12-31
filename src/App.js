@@ -91,7 +91,7 @@ class App extends Component {
             body: JSON.stringify(newMovie)
           })
           .then(res => res.json())
-          .then(alert("Thank you, your movie review has been added"))
+          .then(alert(`Thank you, your movie review has been added`))
           .then(()=> this.reload())
       }
    }
@@ -100,7 +100,6 @@ class App extends Component {
     fetch(`https://crud-movie-database.herokuapp.com/${e.target.id}`, {
             method: "DELETE",
           })
-          .then(res => res.status())
           .then(()=> this.reload())
           
    }
