@@ -4,3 +4,6 @@ It was created using React.JS and is among the first completed full stack applic
 
 ## To run:
 Simply Clone the repo, run 'npm install' in the command line followed by 'npm start' to run the application
+
+#Deployed Site: 
+blue-eyed-sticks.surge.sh
