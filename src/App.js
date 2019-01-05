@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import './App.css';
-import Navbar from "./components/navbar.jsx";
-import Movie from "./components/movie.jsx";
-import Movies from "./components/movies.jsx";
-import Home from "./components/home.jsx";
-import { Route } from "react-router-dom";
-import EditMovie from './components/editMovie';
+import React, { Component } from "react"
+import { Route } from "react-router-dom"
+import "./App.css"
+import Navbar from "./components/navbar.jsx"
+import Movie from "./components/movie.jsx"
+import Movies from "./components/movies.jsx"
+import Home from "./components/home.jsx"
+import EditMovie from "./components/editMovie"
 
 class App extends Component {
   constructor(){
@@ -85,7 +85,7 @@ class App extends Component {
             body: JSON.stringify(newMovie)
           })
           .then(res => res.json())
-          .then(alert(`Thank you, your movie review has been added`))
+          .then(alert(`Thanks for your review on ${newMovie.title}!`))
           .then(()=> this.reload())
       }
    }
@@ -133,12 +133,12 @@ class App extends Component {
     return (
         <div className="body">
           <Navbar reset={this.resetSelected}></Navbar>
-          <Route path="/editMovie" render={() => <EditMovie edit={this.editMovie} selected={this.state.selected} movies={this.state.movies} handleInput={this.handleInput}></EditMovie>}></Route>
-          <Route path="/movie" render={() => <Movie selected={this.state.selected} movies={this.state.movies} />}></Route>
+          <Route path="/editMovie" render={() => <EditMovie edit={this.editMovie} {...this.state} handleInput={this.handleInput}></EditMovie>}></Route>
+          <Route path="/movie" render={() => <Movie {...this.state} />}></Route>
           <Route path="/movies" render={() => <Movies select={this.selectMovie} movies={this.state.movies} addForm={this.state.add} handleAdd={this.handleAdd} handleInput={this.handleInput} addMovie={this.addMovie} deleteMovie={this.deleteMovie} />}></Route>
           <Route path="/" exact component={Home}></Route>
         </div>
-    );
+    )
   }
 }
 

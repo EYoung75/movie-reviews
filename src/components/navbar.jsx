@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from 'react-router-dom'
+import React from "react"
+import { Link } from "react-router-dom"
 
 
 
@@ -11,7 +11,6 @@ class Navbar extends React.Component {
                 <Link to="/"><p className="navLinks">Home</p></Link>
                 <Link to="/movies"><p className="navLinks" onClick={this.props.reset}>Reviewed Movies</p></Link>
             </div>
-
         )
     }
 }

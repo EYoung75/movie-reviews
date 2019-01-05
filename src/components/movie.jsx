@@ -18,9 +18,10 @@ const Movie = (props) => {
     })
     return (
         <div className="movieContainer">
-            {selectedMovie}
+            <div className="movieBorder">
+                {selectedMovie}
+            </div>
         </div>
-
     )
 }
 

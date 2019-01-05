@@ -1,6 +1,6 @@
 import React from "react"
 import "../App.css"
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom"
 
 
 
@@ -10,8 +10,8 @@ class Movies extends React.Component {
         const props = this.props.movies
         const movies = props.map(movie => {
             return (
-                <div id={movie.id}>
-                    <div className="movieList">
+                
+                    <div className="movieList" id={movie.id}>
                         <div className="movieTitle">
                             <Link to="/movie"><h2 onClick={this.props.select} id={movie.id}>{movie.title}</h2></Link>
                         </div>
@@ -29,7 +29,7 @@ class Movies extends React.Component {
                             <Link to="/EditMovie"><button className="upDel" id={movie.id} onClick={this.props.select}>Edit</button></Link>
                         </div>
                     </div>
-                </div>)
+                )
         })
         return (
             <div className="moviesContainer">

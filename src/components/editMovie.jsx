@@ -29,7 +29,6 @@ const EditMovie = (props) => {
         <div className="movieContainer">
             {selectedMovie}
         </div>
-
     )
 }
 
