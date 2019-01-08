@@ -7,7 +7,7 @@ const Movie = (props) => {
         if (movie.id == selected) {
             return (
                 <div>
-                    <img className="moviePoster" src={movie.poster_url}></img>
+                    <img className="moviePoster" src={movie.poster_url} alt={`Movie Poster for ${movie.title}`}></img>
                     <h1>Title: {movie.title}</h1>
                     <h2>Director: {movie.director}</h2>
                     <h2>Year: {movie.year}</h2>  
