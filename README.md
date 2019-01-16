@@ -1,8 +1,8 @@
-#CRUD Movie Reviews React Front-End
+# CRUD Movie Reviews React Front-End
 This repository contains the front end to the complimentary movie crud backend.
 It was created using React.JS and is a one of the first full-crud applications I have created.
 
-## Functionality
+## Functionality:
 
 #### •From the landing page, user can click on "Reviewed Movies" link to be taken to a list of reviewed movies
 #### •User can click on any of the reviewed movies to see full details and a movie poster about the selected movie
