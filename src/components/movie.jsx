@@ -1,5 +1,5 @@
 import React from "react"
-import "../App.css"
+import "../App.scss"
 
 const Movie = (props) => {
     const selected = props.selected

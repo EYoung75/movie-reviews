@@ -1,0 +1,321 @@
+.body {
+  background-image: url("https://i.cbc.ca/1.1279730.1378817737!/httpImage/image.jpg_gen/derivatives/16x9_780/hi-movie-theatre-852.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.nav {
+  height: 10vh;
+  background-image: linear-gradient(
+    to right,
+    rgba(209, 71, 68, 0.9),
+    rgba(209, 71, 68, 0.9) 50%,
+    rgba(0, 0, 0, 1)
+  );
+  display: flex;
+  align-items: center;
+  &__link {
+    text-decoration: none;
+    color: white;
+    margin-left: 2rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    transition: all 0.4s;
+    &:hover {
+      transform: scale(1.1);
+      text-shadow: 0 0.5rem 1.5rem rgba(black, 1);
+    }
+
+    &__icon {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3rem;
+
+  &__banner {
+    width: 30%;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 0.5rem 1.5rem rgba(black, 1);
+    text-indent: 1rem;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1 {
+      font-size: 2.5rem;
+      color: #d14744;
+      font-family: "Lobster", cursive;
+      text-shadow: 0 0.5rem 1.5rem rgba(black, 0.4);
+      transition: transform 0.5s;
+
+      &:hover {
+        transform: skew(-20deg);
+      }
+    }
+  }
+}
+
+.movies {
+  background-color: white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+
+  &__title {
+    font-size: 3rem;
+    font-family: "Lobster", cursive;
+    margin: 2rem;
+  }
+
+  &__labels {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-bottom: solid black 2px;
+
+    button {
+      border-radius: 5px;
+      background-color: #32a732;
+      color: white;
+      font-size: 1rem;
+      padding: 0 1rem;
+      box-shadow: 0 0.5rem 0.5rem rgba(black, 0.4);
+      transition: all 0.5s;
+      height: 2rem;
+      transform: translate(5rem, 1rem);
+      &:hover {
+        cursor: pointer;
+        background-color: white;
+        color: #32a732;
+        box-shadow: 0 1rem 1rem rgba(black, 0.4);
+        font-weight: 500;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+}
+
+.movie {
+  display: inline-flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  align-items: center;
+  width: 90%;
+  margin: 1rem;
+  padding: 0 3rem;
+  transition: all 0.2s;
+  border-radius: 3px;
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    background-color: #d14744;
+    color: white;
+    box-shadow: 0 1rem 1rem rgba(black, 0.4);
+  }
+  & > * {
+    width: 15rem;
+    text-align: center;
+    text-decoration: none;
+  }
+  &__title {
+    color: black;
+    text-align: left;
+    text-shadow: 0 0.5rem 1rem rgba(black, 0.4);
+  }
+
+  &__rating {
+    font-family: "Lobster";
+    font-size: 1.4rem;
+  }
+  &__buttons {
+    display: flex;
+    justify-content: space-evenly;
+
+    & > * {
+      text-decoration: none;
+      color: white;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      padding: 1rem;
+      border-radius: 5px;
+      transition: all 0.3s;
+      &:hover {
+        box-shadow: 0 1rem 1rem rgba(black, 0.5);
+      }
+    }
+
+    .delete {
+      background-color: #d14744;
+    }
+
+    .edit {
+      background-color: orange;
+    }
+  }
+}
+
+.addModal {
+  background-color: white;
+  display: flex;
+  padding: 5rem;
+  align-self: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 3rem;
+  border-radius: 5px;
+  box-shadow: 0 1rem 1rem rgba(black, 1);
+  margin: 2rem 20rem;
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    h2 {
+      font-family: "Lobster";
+      font-size: 3rem;
+      border-bottom: solid black 1px;
+      transition: all 0.3s;
+      &:hover {
+        transform: skew(-20deg);
+      }
+    }
+
+    button {
+      cursor: pointer;
+      height: 3rem;
+      width: 5rem;
+      border-radius: 5px;
+      background-color: #d14744;
+      color: white;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: white;
+        color: #d14744;
+      }
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+
+    & > * {
+      width: 20rem;
+    }
+    button {
+      background-color: #32a732;
+      color: white;
+
+      &:hover {
+        color: #32a732;
+      }
+    }
+  }
+
+  input {
+    border: solid black 1px;
+    border-radius: 2px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+button {
+  transition: all 0.3s;
+  &:hover {
+    box-shadow: 0 1rem 1rem rgba(black, 0.5);
+    cursor: pointer;
+    background-color: white;
+  }
+}
+
+.editMovie {
+  background-color: white;
+  padding: 2rem 0;
+  margin: 2rem 10rem;
+  display: flex;
+  border-radius: 3px;
+ 
+
+  h2 {
+    font-family: "Lobster";
+    font-size: 3rem;
+  }
+
+  &__container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    // align-items: center;
+    padding: 3rem;
+  }
+
+  &__poster {
+    width: 20rem;
+    background-color: red;
+    box-shadow: 0 1rem 1rem black;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    input {
+      margin-bottom: 1rem;
+      border: solid black 1px;
+      font-size: 1rem;
+    }
+
+    button {
+      color: white;
+      background-color: #32a732;
+      height: 2rem;
+      width: 10rem;
+      margin-top: 1rem;
+      border-radius: 1rem;
+
+      &:hover {
+        background-color: white;
+        color: #32a732;
+      }
+    }
+  }
+ 
+}
+
+#submit {
+  height: 3rem;
+  width: 10rem;
+ border-radius: 5px;
+ font-size: 1.2rem;
+}
+

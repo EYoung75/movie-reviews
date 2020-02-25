@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Route } from "react-router-dom"
-import "./App.css"
+import "./App.scss"
 import Navbar from "./components/navbar.jsx"
 import Movie from "./components/movie.jsx"
 import Movies from "./components/movies.jsx"
@@ -126,7 +126,8 @@ class App extends Component {
   }
 
   resetSelected = () => {
-    this.setState({selected: 0})
+    this.setState({selected: 0});
+    console.log(this.state.selected);
   }
 
   render() {

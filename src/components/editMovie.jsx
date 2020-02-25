@@ -1,14 +1,15 @@
 import React from "react"
-import "../App.css"
+import "../App.scss"
 
 const EditMovie = (props) => {
     const selected = props.selected
     const selectedMovie = props.movies.map(movie => {
         if (movie.id == selected) {
             return (
-                <div>
-                    <img className="moviePoster" src={movie.poster_url}></img>
-                    <form className="single" onSubmit={props.edit} id={movie.id}>
+                <div className="editMovie__container">
+                    <h2>Edit Review</h2>
+                    <img className="editMovie__poster" src={movie.poster_url}></img>
+                    <form className="editMovie__form" onSubmit={props.edit} id={movie.id}>
                         <label>Title:</label>
                         <input onChange={props.handleInput} name="title" placeholder={movie.title}></input>
                         <label>Director:</label>
@@ -19,14 +20,14 @@ const EditMovie = (props) => {
                         <input onChange={props.handleInput} name="rating" placeholder={movie.rating}></input>
                         <label>Poster URL:</label>
                         <input onChange={props.handleInput} name="poster_url"></input>
-                        <button className="updateButton" type="submit">Update</button>
+                        <button type="submit">Update</button>
                     </form>
                 </div>
             )
         }
     })
     return (
-        <div className="movieContainer">
+        <div className="editMovie">
             {selectedMovie}
         </div>
     )
