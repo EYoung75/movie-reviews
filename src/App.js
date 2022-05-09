@@ -65,6 +65,7 @@ class App extends Component {
 
 
   addMovie = (e) => {
+    console.log('add movie')
     if (this.state.allInputs === false) {
       e.preventDefault()
       alert("Please fill out all fields")
@@ -101,6 +102,7 @@ class App extends Component {
 
   async componentDidMount() {
     this.reload()
+    console.log('conmponent did mount')
   }
 
   reload = () => {
