@@ -107,17 +107,20 @@ class App extends Component {
     fetch("https://crud-movie-database.herokuapp.com/")
       .then(res => res.json())
       .then(res => 
-        this.setState({
-          movies: res,
-          add: false,
-          title: "",
-          director: "",
-          year: 0,
-          rating: 0,
-          poster_url: "",
-          allInputs: false,
-          selected: 0
-        })
+        {
+          console.log("RES", res)
+          this.setState({
+            movies: res,
+            add: false,
+            title: "",
+            director: "",
+            year: 0,
+            rating: 0,
+            poster_url: "",
+            allInputs: false,
+            selected: 0
+          })
+        }
       )
   }
 
