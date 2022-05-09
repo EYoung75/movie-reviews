@@ -104,6 +104,7 @@ class App extends Component {
   }
 
   reload = () => {
+    console.log("reloading")
     fetch("https://crud-movie-database.herokuapp.com/")
       .then(res => res.json())
       .then(res => 
