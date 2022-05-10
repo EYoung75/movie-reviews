@@ -41,7 +41,7 @@ class App extends Component {
     console.log('edit movies')
     if(this.state.allInputs === false) {
       e.preventDefault()
-      alert("Please fill out all fields")
+      alert("Please fill out all fields!")
     } else {
       e.preventDefault()
       const updatedMovie = {
