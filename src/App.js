@@ -24,6 +24,7 @@ class App extends Component {
   }
 
   handleAdd = () => {
+    console.log("adding")
     this.setState({add: !this.state.add})
   }
 
