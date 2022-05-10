@@ -47,7 +47,7 @@ const Movies = props => {
     </div>
   ) : (
     <div className="addModal">
-      <div className="addModal__header test">
+      <div className="addModal__header">
         <h2>Add A Movie</h2>
         <button onClick={props.handleAdd}>Cancel</button>
       </div>

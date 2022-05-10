@@ -10,7 +10,7 @@ const Navbar = props => {
         Home
       </Link>
       <Link to="/movies" className="nav__link" onClick={props.reset}>
-        <FaVideo className="nav__link__icon test" />
+        <FaVideo className="nav__link__icon" />
         Reviewed Movies
       </Link>
     </div>
