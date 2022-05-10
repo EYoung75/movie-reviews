@@ -6,7 +6,7 @@ const Navbar = props => {
   return (
     <div className="nav">
       <Link to="/" className="nav__link">
-        <FaHome className="nav__link__icon test" />
+        <FaHome className="nav__link__icon" />
         Home
       </Link>
       <Link to="/movies" className="nav__link" onClick={props.reset}>
