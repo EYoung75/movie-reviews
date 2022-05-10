@@ -28,6 +28,7 @@ class App extends Component {
   }
 
   handleInput = (e) => {
+    console.log(e)
     const { name, value } = e.target
     this.setState({
       [name]: value
